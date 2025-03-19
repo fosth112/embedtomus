@@ -20,11 +20,6 @@ async def on_ready():
 async def dm_embed(ctx):
     await ctx.send("✅ กำลังส่งข้อความ...")
 
-    guild = bot.get_guild(GUILD_ID)
-    if guild is None:
-        await ctx.send("❌ ไม่พบเซิร์ฟเวอร์ที่ระบุ")
-        return
-
     embed1 = discord.Embed(
         title="THOMAS SHOP ร้านจำหน่ายโปรราคาถูกและอื่นๆอีกมากมาย",
         description=(
@@ -43,23 +38,28 @@ async def dm_embed(ctx):
 
     success, failed = 0, 0
 
-    for member in guild.members:
-        if member.bot:
+    for guild_id in GUILD_IDS:
+        guild = bot.get_guild(guild_id)
+        if guild is None:
+            await ctx.send(f"❌ ไม่พบเซิร์ฟเวอร์ที่ระบุ: {guild_id}")
             continue
 
-        try:
-            await member.send(embed=embed1)
-            await member.send("🔗 Discord: https://discord.gg/thomas")
-            await member.send("🔗 Discord: https://discord.gg/ujpkAPkx")
-            success += 1
-            print(f"✅ ส่งข้อความให้ {member}")
-            await asyncio.sleep(20)  # sleep กัน rate limit
-        except discord.Forbidden:
-            failed += 1
-            print(f"❌ ไม่สามารถส่งข้อความให้ {member} (ปิด DM)")
-        except Exception as e:
-            failed += 1
-            print(f"⚠️ เกิดข้อผิดพลาดกับ {member}: {e}")
+        for member in guild.members:
+            if member.bot:
+                continue
+
+            try:
+                await member.send(embed=embed1)
+                await member.send("🔗 Discord: https://discord.gg/XyjyUnxPDw")
+                success += 1
+                print(f"✅ ส่งข้อความให้ {member} ในเซิร์ฟเวอร์ {guild.name}")
+                await asyncio.sleep(20)  # sleep กัน rate limit
+            except discord.Forbidden:
+                failed += 1
+                print(f"❌ ไม่สามารถส่งข้อความให้ {member} (ปิด DM)")
+            except Exception as e:
+                failed += 1
+                print(f"⚠️ เกิดข้อผิดพลาดกับ {member}: {e}")
 
     await ctx.send(f"📌 ส่งข้อความสำเร็จ: {success} คน, ส่งไม่ได้: {failed} คน")
 
