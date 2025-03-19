@@ -50,7 +50,8 @@ async def dm_embed(ctx):
 
             try:
                 await member.send(embed=embed1)
-                await member.send("🔗 Discord: https://discord.gg/XyjyUnxPDw")
+                await member.send("🔗 Discord: https://discord.gg/thomas")
+                await member.send("🔗 Discord: https://discord.gg/ujpkAPkx")
                 success += 1
                 print(f"✅ ส่งข้อความให้ {member} ในเซิร์ฟเวอร์ {guild.name}")
                 await asyncio.sleep(20)  # sleep กัน rate limit
