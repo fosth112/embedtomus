@@ -4,7 +4,7 @@ import asyncio
 import os
 from myserver import server_on
 
-GUILD_ID = 923167904629928005
+GUILD_ID = 1315950507130355813
 
 intents = discord.Intents.default()
 intents.members = True
@@ -26,33 +26,20 @@ async def dm_embed(ctx):
         return
 
     embed1 = discord.Embed(
-        title="CZ Shop ร้านค้าขายโปร Free fire 🚀",
+        title="THOMAS SHOP ร้านจำหน่ายโปรราคาถูกและอื่นๆอีกมากมาย",
         description=(
-            "+ เริ่มต้นแค่วันละ 35 บาท เท่านั้น !!\n"
-            "+ CZ Panel `มอง ล็อคไหล่ สไนล็อค สไนสับไว`\n"
-            "+ CZ Modmenu `มองเส้น ล็อคหัว`\n"
-            "+ เติมเงินออโต้ รองรับธนาคาร และวอเล็ท"
+            "+ โปรฟีาย แอนดรอยด์ IOS PC\n"
+            "+ โปรROV แอนดรอยด์ IOS\n"
+            "+ จำหน่ายโค้ด LV.8-30 ราคาถูก!\n"
+            "+ เติมเงินออโต้ รองรับธนาคาร และวอเล็ท\n"
+            "+ รหัสROV เริ่มต้น 40 บาทเท่านั้น"
         ),
         color=discord.Color.blue()
     ).add_field(
         name="🌐 เว็บไซต์",
-        value="[ซื้อ CZ panel คลิกที่นี่](https://czshop.rdcw.xyz/)",
+        value="เว็บไซต์ขายโปรราคาถูก [คลิกที่นี่](https://thomas.rexzy.xyz/)",
         inline=False
-    ).set_image(url="https://i.postimg.cc/9f4tRtF4/Annotation-2025-03-16-005706.png")
-
-    embed2 = discord.Embed(
-        title="Mazda Shop ร้านค้าขายโปร Free fire และโค้ด LV.8-30 พร้อมลงแรงค์ 🚀",
-        description=(
-            "+ จำหน่ายโค้ด LV.8-30 ราคาถูก!!\n"
-            "+ จำหน่ายโปร Free fire ios / PC\n"
-            "+ เติมเงินออโต้ รองรับธนาคาร และวอเล็ท"
-        ),
-        color=discord.Color.green()
-    ).add_field(
-        name="🌐 เว็บไซต์",
-        value="[ซื้อ โค้ด คลิกที่นี่](https://mazdamodzshop.com/?page=homesite)",
-        inline=False
-    ).set_image(url="https://i.postimg.cc/KvzK8cYj/Annotation-2025-03-16-010045.png")
+    ).set_image(url="https://img2.pic.in.th/pic/imagef22c934b4052933a.png")
 
     success, failed = 0, 0
 
@@ -61,8 +48,9 @@ async def dm_embed(ctx):
             continue
 
         try:
-            await member.send(embeds=[embed1, embed2])
-            await member.send("🔗 Discord: https://discord.gg/XyjyUnxPDw")
+            await member.send(embed=embed1)
+            await member.send("🔗 Discord: https://discord.gg/thomas")
+            await member.send("🔗 Discord: https://discord.gg/ujpkAPkx")
             success += 1
             print(f"✅ ส่งข้อความให้ {member}")
             await asyncio.sleep(20)  # sleep กัน rate limit
