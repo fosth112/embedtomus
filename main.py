@@ -4,7 +4,7 @@ import asyncio
 import os
 from myserver import server_on
 
-GUILD_IDS = [1315950507130355813, 1317703769387040831] 
+GUILD_IDS = [1135388731327656046, 1273106422615375973] 
 
 intents = discord.Intents.default()
 intents.members = True
